@@ -14,7 +14,7 @@
 
   <ul *ngFor="let year of splitDatesByYears">
     <li>
-        <button (click)="buildChartOnSelectedYear(year)">{{year | date: 'yyyy-MM-dd'}}</button>
+        <button (click)="buildChartOnSelectedDate(year)">{{year | date: 'yyyy-MM-dd'}}</button>
     </li>
 </ul>
 

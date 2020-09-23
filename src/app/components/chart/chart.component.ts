@@ -97,15 +97,10 @@ export class ChartComponent implements OnInit {
 
   }
 
-  buildChartOnSelectedYear(selectedDate) {
-
-    // this.loadChartDataSet(selectedDate);
-
-  }
   buildChartOnSelectedDate(selectedDate) {
 
-    // this.loadChartDataSet(selectedDate);
-    console.log("/////")
+    console.log("clicked")
+    this.loadChartDataSet(selectedDate);
 
   }
 }

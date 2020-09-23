@@ -26,6 +26,7 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     ChartsModule,
     FormsModule,
+    
 
   ],
   providers: [
