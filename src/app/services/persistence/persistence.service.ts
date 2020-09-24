@@ -6,14 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class PersistenceService {
 
+
   private satisticsUrl: string = "/api/statistics";
   private minMaxDatesURL: string = "/api/minMaxDates";
   private onInitChartURL: string = "/api/yearDataOnChoosenDate"
+  private onChoosenRangeURL: string = "/api/onChoosenRange"
 
 
   private OneYearChartUrl: string = "/api/oneYearChart";
   private allYearUrl: string = "/api/allYears";
-  private startBatchUrl: string = "/api/loadData";
+  private startBatchUrl: string = "/api/loadData"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -43,6 +45,10 @@ export class PersistenceService {
 
   getStartBatch(){
     return this.httpClient.get(this.startBatchUrl);
+  }
+
+  getOnChoosenRange(startDate: any, endDate: any) {
+    return this.httpClient.get(this.onChoosenRangeURL+"/"+startDate+"/"+endDate);
   }
 
 }

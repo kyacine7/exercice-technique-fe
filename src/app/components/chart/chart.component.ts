@@ -19,7 +19,8 @@ export class ChartComponent implements OnInit {
    private maxDate: Date;
    private chartDataDB;
    private splitDatesByYears: Date[] = [];
-   private selectedDate;
+   private  startDate ;
+   private  endDate;
  
    ChartData: ChartDataSets[] = [{
      data: [],
@@ -97,10 +98,21 @@ export class ChartComponent implements OnInit {
 
   }
 
-  buildChartOnSelectedDate(selectedDate) {
+  buildChartOnSelectedDate() {
 
-    console.log("clicked")
-    this.loadChartDataSet(selectedDate);
+    this.startDate = this.datepipe.transform(this.startDate, 'yyyy-MM-dd');
+    this.endDate = this.datepipe.transform(this.endDate, 'yyyy-MM-dd');
+    
+
+    this.serviceAPI.getOnChoosenRange(this.startDate,this.endDate).subscribe(elements => {
+
+      this.chartDataDB = this.mapper.mapChartData(elements);
+
+      this.ChartData[0].data = this.chartDataDB.chartValues;
+      this.ChartLabels = this.chartDataDB.chartDates;
+
+    });
+    console.log(this.datepipe.transform(this.startDate, 'yyyy-MM-dd'))
 
   }
 }
