@@ -19,8 +19,10 @@ export class ChartComponent implements OnInit {
    private maxDate: Date;
    private chartDataDB;
    private splitDatesByYears: Date[] = [];
-   private  startDate ;
-   private  endDate;
+   private startDate ;
+   private endDate;
+   private origines = [];
+   private choosenOrigine ='noOrigine';
  
    ChartData: ChartDataSets[] = [{
      data: [],
@@ -49,10 +51,9 @@ export class ChartComponent implements OnInit {
     this.buildChartOnInit();
   }
 
-  loadChartDataSet(fromDate) {
+  loadChartDataSet(date) {
 
-    this.serviceAPI.getYearDataOnChoosenDate(fromDate).subscribe(elements => {
-
+    this.serviceAPI.getYearDataOnChoosenDate(this.choosenOrigine,date).subscribe(elements => {
       this.chartDataDB = this.mapper.mapChartData(elements);
 
       this.ChartData[0].data = this.chartDataDB.chartValues;
@@ -84,14 +85,14 @@ export class ChartComponent implements OnInit {
   buildChartOnInit() {
 
     this.serviceAPI.getMinMaxDates().subscribe(elements1 => {
-
+      this.origines = elements1[1];
+      elements1 = elements1[0];      
       this.minDate = elements1[0][0];
       this.maxDate = elements1[0][1];
 
       this.splitDatesByYears = this.splitDataByYears();
 
       this.loadChartDataSet(this.minDate);
-
 
     });
 
@@ -104,7 +105,7 @@ export class ChartComponent implements OnInit {
     this.endDate = this.datepipe.transform(this.endDate, 'yyyy-MM-dd');
     
 
-    this.serviceAPI.getOnChoosenRange(this.startDate,this.endDate).subscribe(elements => {
+    this.serviceAPI.getOnChoosenRange(this.choosenOrigine,this.startDate,this.endDate).subscribe(elements => {
 
       this.chartDataDB = this.mapper.mapChartData(elements);
 

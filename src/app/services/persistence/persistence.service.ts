@@ -9,46 +9,44 @@ export class PersistenceService {
 
   private satisticsUrl: string = "/api/statistics";
   private minMaxDatesURL: string = "/api/minMaxDates";
-  private onInitChartURL: string = "/api/yearDataOnChoosenDate"
+  private OneYearChartUrl: string = "/api/yearData"
   private onChoosenRangeURL: string = "/api/onChoosenRange"
 
 
-  private OneYearChartUrl: string = "/api/oneYearChart";
   private allYearUrl: string = "/api/allYears";
   private startBatchUrl: string = "/api/loadData"
 
   constructor(private httpClient: HttpClient) { }
 
   getStatistics() {
+    console.log(this.satisticsUrl)
+
     return this.httpClient.get(this.satisticsUrl);
   }
 
   getMinMaxDates(){
+    console.log(this.minMaxDatesURL)
+
     return this.httpClient.get(this.minMaxDatesURL)
   }
 
-  getYearDataOnChoosenDate(minDate) {
+  getYearDataOnChoosenDate(origine_name,startDate) {
+    console.log(this.OneYearChartUrl+"/"+origine_name+"/"+startDate)
 
-      return this.httpClient.get(this.onInitChartURL+"/"+minDate);
-
+      return this.httpClient.get(this.OneYearChartUrl+"/"+origine_name+"/"+startDate);
+  }
+  getOnChoosenRange(origine_name, startDate, endDate) {
+    console.log(this.onChoosenRangeURL+"/"+origine_name+"/"+startDate+"/"+endDate)
+    
+    return this.httpClient.get(this.onChoosenRangeURL+"/"+origine_name+"/"+startDate+"/"+endDate);
   }
 
   // Abouve Validated
-
-  getOneYearChart(firstDayOfYear: string) {
-    return this.httpClient.get(this.OneYearChartUrl+"/"+firstDayOfYear);
-  }
-
-  getAllYear() {
-    return this.httpClient.get(this.allYearUrl);
-  }
 
   getStartBatch(){
     return this.httpClient.get(this.startBatchUrl);
   }
 
-  getOnChoosenRange(startDate: any, endDate: any) {
-    return this.httpClient.get(this.onChoosenRangeURL+"/"+startDate+"/"+endDate);
-  }
+
 
 }
