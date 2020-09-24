@@ -8,7 +8,6 @@ import { ChartsModule, ThemeService } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartComponent } from './components/chart/chart.component';
-import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { MaterialModule } from './material.modul';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +21,7 @@ import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@a
     AppComponent,
     StatisticsComponent,
     ChartComponent,
-    DatepickerComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -38,10 +37,7 @@ import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@a
 
     MaterialModule,
 
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
+
     
 
 
