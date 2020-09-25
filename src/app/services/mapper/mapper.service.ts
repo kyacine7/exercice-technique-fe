@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MapperService {
 
-  constructor() { }
+  constructor(private datePipe: DatePipe) { }
 
 
   mapChartData(elements) {
@@ -29,6 +30,26 @@ export class MapperService {
     return chartDataDB;
 
   }
+
+  splitDataByYears( minDate,maxDate) {
+
+    let afterYearDate = this.date(minDate);
+    let limitYearDate = this.date(maxDate);
+
+    let splits = [];
+
+    for (afterYearDate;
+      afterYearDate < limitYearDate;
+      afterYearDate.setFullYear(afterYearDate.getFullYear() + 1)) {
+
+      splits.push(this.datePipe.transform(afterYearDate, 'yyyy-MM-dd'));
+
+    }
+
+    return splits;
+
+  }
+
 
   date(stringDate){
     let date = (new Date(new Date(stringDate)));

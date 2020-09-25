@@ -30,7 +30,7 @@ export class PersistenceService {
     return this.httpClient.get(this.minMaxDatesURL)
   }
 
-  getYearDataOnChoosenDate(origine_name,startDate) {
+  getYearDataOnChoosenRange(origine_name,startDate) {
     console.log(this.OneYearChartUrl+"/"+origine_name+"/"+startDate)
 
       return this.httpClient.get(this.OneYearChartUrl+"/"+origine_name+"/"+startDate);
