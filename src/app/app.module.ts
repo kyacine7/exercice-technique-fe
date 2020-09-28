@@ -12,6 +12,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { MaterialModule } from './material.modul';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -21,6 +22,7 @@ import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule } from '@a
     AppComponent,
     StatisticsComponent,
     ChartComponent,
+    HomeComponent,
     
   ],
   imports: [

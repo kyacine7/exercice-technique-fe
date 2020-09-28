@@ -1,25 +1,22 @@
-<div class="card">
-    <div class="card-body">
+<div class="container-sm" style="max-width: 400px; left: 0; position: absolute;">
+    <div>
+        <table class="table table-hover table-sm table-secondary">
 
-        <div class="col-md-5">
-            <table class="table table-hover table-sm table-secondary">
-                
-                <thead>
-                    <tr>
-                        <th scope="col">Origine</th>
-                        <th scope="col">Values Sum</th>
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                    <th scope="col">Origine</th>
+                    <th scope="col">Values Sum</th>
+                </tr>
+            </thead>
 
-                <tbody>
-                    <tr *ngFor="let statistic of statisticsTable">
-                        <th>{{statistic[0]}}</th>
-                        <td>{{statistic[1]}}</td>
-                    </tr>
-                </tbody>
-            
-            </table>
-        </div>
+            <tbody>
+                <tr *ngFor="let statistic of statisticsTable">
+                    <td>{{statistic[0]}}</td>
+                    <td>{{statistic[1]}}</td>
+                </tr>
+            </tbody>
 
+        </table>
     </div>
+
 </div>

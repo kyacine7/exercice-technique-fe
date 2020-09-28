@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ChartComponent } from './components/chart/chart.component';
+import { HomeComponent } from './components/home/home.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'/statistics',pathMatch:'full'},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'home',component:HomeComponent},
   {path:'statistics',component: StatisticsComponent},
   {path:'chart',component:ChartComponent}
 ];

@@ -12,8 +12,6 @@ export class PersistenceService {
   private OneYearChartUrl: string = "/api/yearData"
   private onChoosenRangeURL: string = "/api/onChoosenRange"
 
-
-  private allYearUrl: string = "/api/allYears";
   private startBatchUrl: string = "/api/loadData"
 
   constructor(private httpClient: HttpClient) { }

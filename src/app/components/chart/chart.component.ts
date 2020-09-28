@@ -20,7 +20,7 @@ export class ChartComponent implements OnInit {
    private chartDataDB;
    private splitDatesByYears: Date[] = [];
    private startDate ;
-   private endDate;
+   private endDate ;
    private origines :string[] = [];
    private choosenOrigine:string ='noOrigine';
  
@@ -69,7 +69,7 @@ export class ChartComponent implements OnInit {
 
     this.serviceAPI.getMinMaxDates().subscribe(elements1 => {
       this.origines = elements1[1];
-      elements1 = elements1[0];      
+         elements1 = elements1[0];      
       this.minDate = elements1[0][0];
       this.maxDate = elements1[0][1];
 
